@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JsDex</title>
+    <link rel="shortcut icon" href="https://play-lh.googleusercontent.com/2ezyZkgstCopdmXm13A0LKX8sKO9OAtUcU-ftpedY0rD9IDepQB9HOOSxyBhLTq01L8=s180-rw" type="image/x-icon">
+    <!--CSS-->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!--Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400&family=VT323&display=swap"
+        rel="stylesheet">
+    <!--font-family: 'Oswald', sans-serif; 300 / 400
+        font-family: 'VT323', monospace;-->
+
+</head>
+
+<body>
+    <div class="jsdex-container" id="jsdex-open">
+        <div id="jsdex-screen">
+            <img src="" id="pokemon-sprite">
+            <p id="pokemon-name"></p>
+            <p id="pokemon-type"></p>
+            <!--465 x 320-->
+        </div>
+
+        <button id="power" onclick="togglePower()"></button>
+
+        <button id="keyUp" class="arrow" onclick="prevPokemon()"></button>
+        <button id="keyDown" class="arrow" onclick="nextPokemon()"></button>
+
+    </div>
+    <!-- <div class="jsdex-container" id="jsdex-close"></div> -->
+
+    <script src="./assets/js/jsdex.js"></script>
+</body>
+
+</html>

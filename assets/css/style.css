@@ -1,0 +1,90 @@
+html {
+    font-family: 'VT323', monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.sr-only{
+    visibility: hidden;
+    position: absolute;
+    z-index: -4000;
+    top: -5000;
+}
+
+.jsdex-container {
+    height: 607.5px;
+    width: 430px;
+
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+
+    transform: translate(-50%, -50%);
+
+    background-image: url("../img/jsdex_open.png");
+    background-size: cover;
+    background-position: center;
+}
+
+#jsdex-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    width: calc(465px /2);
+    height: calc(320px /2);
+
+    position: absolute;
+    top: 210px;
+    left: 91px;
+
+    background-color: azure;
+    overflow: hidden;
+    transition: all 0.2s;
+
+    transform-origin: center center;
+
+    /* Initial Config */
+    transform: scale(1,0);
+}
+
+#jsdex-close {
+    background-image: url("../img/jsdex_close.png");
+}
+
+/* Buttons */
+button:hover {
+    cursor: pointer;
+}
+
+#power {
+    position: absolute;
+    top: 384px;
+    left: 86px;
+
+    background: none;
+
+    width: 19px;
+    height: 14px;
+}
+
+.arrow{
+    position: absolute;
+    width: 49px;
+    height: 31px;
+    background: none;
+}
+
+#keyUp{
+    top: 451px;
+    left: 287px;
+}
+
+#keyDown{
+    top: 537px;
+    left: 287px;
+}
