@@ -15,6 +15,13 @@ html {
     top: -5000;
 }
 
+body {
+    width: 100vw;
+    height: 100vh;
+
+    background-image: radial-gradient(white, rgb(131, 131, 201));
+}
+
 .jsdex-container {
     height: 607.5px;
     width: 430px;
@@ -30,26 +37,60 @@ html {
     background-position: center;
 }
 
-#jsdex-screen {
+/*----- Screen*/
+
+[id$="screen"]{
     display: flex;
     flex-direction: column;
+
+    position: absolute;
+    overflow: hidden;
+}
+
+#jsdex-screen {
     align-items: center;
     
     width: calc(465px /2);
     height: calc(320px /2);
 
-    position: absolute;
     top: 210px;
     left: 91px;
 
     background-color: azure;
-    overflow: hidden;
     transition: all 0.2s;
 
     transform-origin: center center;
 
     /* Initial Config */
     transform: scale(1,0);
+}
+
+#sub-screen{
+    justify-content: center;
+    visibility:hidden;
+    
+    top: 481px;
+    left: 106px;
+    
+    width: calc(250px /2);
+    height: calc(180px /2);
+
+    background-color: #00AA5A;
+    border-radius: 0 0 12px 0;
+}
+
+#sub-screen #selected{
+    display: flex;
+    align-items: center;
+}
+
+#sub-screen *{
+    margin-left: 2px;
+}
+
+#sub-screen #selected img{
+    width: 10px;
+    height: 10px;
 }
 
 #jsdex-close {
@@ -79,12 +120,12 @@ button:hover {
     background: none;
 }
 
-#keyUp{
+#key-up{
     top: 451px;
     left: 287px;
 }
 
-#keyDown{
+#key-down{
     top: 537px;
     left: 287px;
 }

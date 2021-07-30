@@ -6,7 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JsDex</title>
-    <link rel="shortcut icon" href="https://play-lh.googleusercontent.com/2ezyZkgstCopdmXm13A0LKX8sKO9OAtUcU-ftpedY0rD9IDepQB9HOOSxyBhLTq01L8=s180-rw" type="image/x-icon">
+    <link rel="shortcut icon"
+        href="https://play-lh.googleusercontent.com/2ezyZkgstCopdmXm13A0LKX8sKO9OAtUcU-ftpedY0rD9IDepQB9HOOSxyBhLTq01L8=s180-rw"
+        type="image/x-icon">
     <!--CSS-->
     <link rel="stylesheet" href="./assets/css/style.css">
     <!--Fonts-->
@@ -21,6 +23,7 @@
 
 <body>
     <div class="jsdex-container" id="jsdex-open">
+        <!--Screen-->
         <div id="jsdex-screen">
             <img src="" id="pokemon-sprite">
             <p id="pokemon-name"></p>
@@ -28,15 +31,27 @@
             <!--465 x 320-->
         </div>
 
-        <button id="power" onclick="togglePower()"></button>
+        <div id="sub-screen">
+            <p class="sub-names"></p>
+            <p class="sub-names"></p>
+            <div id="selected">
+                <img src="./assets/img/arrow.png" width="10px">
+                <p class="sub-names"></p>
+            </div>
+            <p class="sub-names"></p>
+            <p class="sub-names"></p>
+        </div>
 
-        <button id="keyUp" class="arrow" onclick="prevPokemon()"></button>
-        <button id="keyDown" class="arrow" onclick="nextPokemon()"></button>
+        <!--Buttons-->
+        <button id="power" onclick="jsdex.togglePower()"></button>
+
+        <button id="key-up" class="arrow" onclick="jsdex.prevPokemon()"></button>
+        <button id="key-down" class="arrow" onclick="jsdex.nextPokemon()"></button>
 
     </div>
     <!-- <div class="jsdex-container" id="jsdex-close"></div> -->
 
-    <script src="./assets/js/jsdex.js"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
 
 </html>
