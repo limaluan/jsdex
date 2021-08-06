@@ -2,7 +2,8 @@ const jsdex = {
   screenOn: false,
   pokemonId: 1,
 
-  /*----- BUTTONS AND BUTTONS METHODS */
+  /*----- BUTTONS ------*/
+  // The buttons property get the HTML elements for use on JS
   buttons: {
     powerButton: document.getElementById("power"),
 
@@ -10,24 +11,26 @@ const jsdex = {
     keyDown: document.getElementById("key-down"),
   },
 
+  // Toggle Power of screens of jsdex
   togglePower: function () {
     if (this.screenOn) {
       this.jsScreen.screenDex.style.transform = "scale(1,0)";
       this.jsScreen.screenDex.style.visibility = "hidden";
 
       this.subScreen.screenSub.style.visibility = "hidden";
-      
+
       this.screenOn = false;
     } else {
       this.jsScreen.screenDex.style.transform = "scale(1,1)";
       this.jsScreen.screenDex.style.visibility = "initial";
 
       this.subScreen.screenSub.style.visibility = "initial";
-      
+
       this.screenOn = true;
     }
   },
 
+  // Change to the next Pokemon
   nextPokemon: function () {
     if (this.screenOn) {
       this.pokemonId++;
@@ -36,6 +39,7 @@ const jsdex = {
     }
   },
 
+  // Change to the previous Pokemon
   prevPokemon: function () {
     if (this.screenOn) {
       this.pokemonId--;
@@ -44,7 +48,8 @@ const jsdex = {
     }
   },
 
-  /*----- JSDEX SCREEN METHODS */
+  /*----- JSDEX SCREEN ------*/
+  /*----- jsScreen property get the HTML elements to use on JS -------*/
   jsScreen: {
     screenDex: document.getElementById("jsdex-screen"),
 
@@ -53,28 +58,31 @@ const jsdex = {
     pokemonType: document.getElementById("pokemon-type"),
   },
 
-  /*----- SUBSCREEN METHODS */
+  /*----- SUBSCREEN -------*/
+  /* subScreen property get the HTML elements to use in JS */
   subScreen: {
-    screenSub: document.getElementById("sub-screen"),
-    subName: document.getElementsByClassName("sub-names"),
+    screenSub: document.getElementById("sub-screen"), // Refers to the mini screen in the jsdex interface
+    subName: document.getElementsByClassName("sub-names"), // Refers to the names of pokemon on the subScreen
 
+    // refreshSubNames method update the names that is showed on the subScreen
     refreshSubNames: function () {
-      setPokemonSubNamesId(jsdex.pokemonId - 2, 0);
-      setPokemonSubNamesId(jsdex.pokemonId - 1, 1);
-      setPokemonSubNamesId(jsdex.pokemonId, 2);
-      setPokemonSubNamesId(jsdex.pokemonId + 1, 3);
-      setPokemonSubNamesId(jsdex.pokemonId + 2, 4);
+      getPokemonSubNamesId(jsdex.pokemonId - 2, 0);
+      getPokemonSubNamesId(jsdex.pokemonId - 1, 1);
+      getPokemonSubNamesId(jsdex.pokemonId, 2);
+      getPokemonSubNamesId(jsdex.pokemonId + 1, 3);
+      getPokemonSubNamesId(jsdex.pokemonId + 2, 4);
 
-      function setPokemonSubNamesId(id, index) {
-          fetch("https://pokeapi.co/api/v2/pokemon/" + id)
-            .then((resp) => resp.json())
-            .then((pokemon) => {
-              jsdex.subScreen.subName[index].innerHTML =
-                pokemon.id + ": " + pokemon.name;
-            })
-            .catch(() => {
-              jsdex.subScreen.subName[index].innerHTML = "-------------";
-            });
+      // getPokemonSubNamesId get the name and Id for use on refreshSubNames method above
+      function getPokemonSubNamesId(id, index) {
+        fetch("https://pokeapi.co/api/v2/pokemon/" + id)
+          .then((resp) => resp.json())
+          .then((pokemon) => {
+            jsdex.subScreen.subName[index].innerHTML =
+              pokemon.id + ": " + pokemon.name;
+          })
+          .catch(() => {
+            jsdex.subScreen.subName[index].innerHTML = "-------------";
+          });
       }
     },
   },
@@ -98,6 +106,7 @@ const jsdex = {
           "Type: " + pokemonData.types.map((type) => type.type.name);
         this.subScreen.refreshSubNames();
         console.log(pokemonData);
+        console.log("https://pokeapi.co/api/v2/pokemon/");
       });
   },
 
